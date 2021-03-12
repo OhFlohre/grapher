@@ -1,4 +1,5 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
+import parse from '../../math/parse'
 
 function App() {
   const [expression, setExpression] = useState("")
@@ -8,6 +9,9 @@ function App() {
     setExpression(value)
   }
 
+  useEffect(() => {
+    parse(expression)
+  }, [expression])
 
   return (
     <>
